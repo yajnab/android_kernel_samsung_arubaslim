@@ -9,12 +9,12 @@ white='tput setaf 7'
 normal='tput sgr0'
 bold='setterm -bold'
 date="date"
-KERNEL_BUILD="Gluon_Kernel_delo3geur-`date '+%Y-%m-%d---%H-%M'`" 
+KERNEL_BUILD="Gluon_Kernel_arubaslim-`date '+%Y-%m-%d---%H-%M'`" 
 echo $1 > VERSION	
 VERSION='cat VERSION'
 $yellow
 MODULES=./gluon_works/system/lib/modules
-TOOLCHAIN=../../toolchain/linaro/bin/arm-eabi
+TOOLCHAIN=../../toolchain/arm-eabi-4.9/bin/arm-eabi
 $blue
 echo " |========================================================================| "
 echo " |*************************** GLUON KERNEL *******************************| "
@@ -64,14 +64,14 @@ clear
 $cyan
 echo " Making config"
 $violet
-ARCH=arm CROSS_COMPILE=../../toolchain/linaro/bin/arm-eabi- make delos_gluon_defconfig
+ARCH=arm CROSS_COMPILE=../../toolchain/arm-eabi-4.9/bin/arm-eabi- make arubaslim_gluon_defconfig
 clear
 
 
 $cyan
 echo "Making the zImage-the real deal"
 $violet
-ARCH=arm CROSS_COMPILE=../../toolchain/linaro/bin/arm-eabi- make -j64 CONFIG_DEBUG_SECTION_MISMATCH=y
+ARCH=arm CROSS_COMPILE=../../toolchain/arm-eabi-4.9/bin/arm-eabi- make -j64 CONFIG_DEBUG_SECTION_MISMATCH=y
 clear
 $cyan 
 mkdir gluon_works/bootimage/source_img
